@@ -9,3 +9,19 @@ Implementation of Thorsten Ball's Interpreter book in TS
 - [ ] Evaluation (Chpt 3)
 - [ ] Extending the Interpreter (Chpt 4)
 - [ ] Macro System ([Lost Chapter](https://interpreterbook.com/lost/))
+
+## Usage
+
+After running an `npm i` the available actions are:
+
+Run the REPL:
+
+```console
+npm start
+```
+
+Run the test suite:
+
+```console
+npm test
+```
