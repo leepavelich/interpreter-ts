@@ -1,6 +1,6 @@
-const TokenType = {
+export const TokenType = {
   Illegal: "ILLEGAL",
-  EOF: "EOF",
+  Eof: "EOF",
   Ident: "IDENT",
   Int: "INT",
   Assign: "=",
@@ -15,7 +15,7 @@ const TokenType = {
   Let: "LET",
 } as const;
 
-type TokenItem = (typeof TokenType)[keyof typeof TokenType];
+export type TokenItem = (typeof TokenType)[keyof typeof TokenType];
 
 export type Token = {
   type: TokenItem;
