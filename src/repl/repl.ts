@@ -18,10 +18,10 @@ export function startREPL() {
 
     let token: Token;
     while ((token = lexer.getNextToken())) {
-      console.log(token);
       if (token.type == "EOF") {
         break;
       }
+      console.log(token);
     }
 
     rl.prompt();
