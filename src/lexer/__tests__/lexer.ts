@@ -12,6 +12,12 @@ test("test getNextToken", () => {
     let result = add(five, ten);
     !-/*5;
     5 < 10 > 5;
+
+    if (5 < 10) {
+      return true;
+    } else {
+      return false;
+    }
     `;
 
   const tokens: Token[] = [
@@ -64,6 +70,24 @@ test("test getNextToken", () => {
     { type: TokenType.GreaterThan, literal: ">" },
     { type: TokenType.Int, literal: "5" },
     { type: TokenType.Semicolon, literal: ";" },
+
+    { type: TokenType.If, literal: "if" },
+    { type: TokenType.LParen, literal: "(" },
+    { type: TokenType.Int, literal: "5" },
+    { type: TokenType.LessThan, literal: "<" },
+    { type: TokenType.Int, literal: "10" },
+    { type: TokenType.RParen, literal: ")" },
+    { type: TokenType.LBrace, literal: "{" },
+    { type: TokenType.Return, literal: "return" },
+    { type: TokenType.True, literal: "true" },
+    { type: TokenType.Semicolon, literal: ";" },
+    { type: TokenType.RBrace, literal: "}" },
+    { type: TokenType.Else, literal: "else" },
+    { type: TokenType.LBrace, literal: "{" },
+    { type: TokenType.Return, literal: "return" },
+    { type: TokenType.False, literal: "false" },
+    { type: TokenType.Semicolon, literal: ";" },
+    { type: TokenType.RBrace, literal: "}" },
   ];
 
   const lexer = new Lexer(input);

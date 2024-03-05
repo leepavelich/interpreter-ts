@@ -1,8 +1,4 @@
-import { Token, TokenItem, TokenType } from "../token/token";
-
-function createToken(type: TokenItem, literal: string): Token {
-  return { type, literal };
-}
+import { Token, createToken, TokenType, Keywords } from "../token/token";
 
 const _0 = "0".charCodeAt(0);
 const _9 = "9".charCodeAt(0);
@@ -23,11 +19,6 @@ function isDigit(char: string): boolean {
   const ch = char.charCodeAt(0);
   return _0 <= ch && ch <= _9;
 }
-
-const Keywords = {
-  fn: createToken(TokenType.Function, "fn"),
-  let: createToken(TokenType.Let, "let"),
-} as const;
 
 export class Lexer {
   private position: number = 0;
