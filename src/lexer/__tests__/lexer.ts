@@ -10,6 +10,8 @@ test("test getNextToken", () => {
     };
     
     let result = add(five, ten);
+    !-/*5;
+    5 < 10 > 5;
     `;
 
   const tokens: Token[] = [
@@ -48,6 +50,19 @@ test("test getNextToken", () => {
     { type: TokenType.Comma, literal: "," },
     { type: TokenType.Ident, literal: "ten" },
     { type: TokenType.RParen, literal: ")" },
+    { type: TokenType.Semicolon, literal: ";" },
+
+    { type: TokenType.Bang, literal: "!" },
+    { type: TokenType.Minus, literal: "-" },
+    { type: TokenType.Slash, literal: "/" },
+    { type: TokenType.Asterisk, literal: "*" },
+    { type: TokenType.Int, literal: "5" },
+    { type: TokenType.Semicolon, literal: ";" },
+    { type: TokenType.Int, literal: "5" },
+    { type: TokenType.LessThan, literal: "<" },
+    { type: TokenType.Int, literal: "10" },
+    { type: TokenType.GreaterThan, literal: ">" },
+    { type: TokenType.Int, literal: "5" },
     { type: TokenType.Semicolon, literal: ";" },
   ];
 

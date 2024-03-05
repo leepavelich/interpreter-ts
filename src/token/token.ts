@@ -13,6 +13,12 @@ export const TokenType = {
   RBrace: "}",
   Function: "FUNCTION",
   Let: "LET",
+  Bang: "!",
+  Minus: "-",
+  Slash: "/",
+  Asterisk: "*",
+  LessThan: "<",
+  GreaterThan: ">",
 } as const;
 
 export type TokenItem = (typeof TokenType)[keyof typeof TokenType];

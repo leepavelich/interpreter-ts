@@ -47,20 +47,38 @@ export class Lexer {
       case "=":
         tok = createToken(TokenType.Assign, this.ch);
         break;
+      case "+":
+        tok = createToken(TokenType.Plus, this.ch);
+        break;
+      case "-":
+        tok = createToken(TokenType.Minus, this.ch);
+        break;
+      case "!":
+        tok = createToken(TokenType.Bang, this.ch);
+        break;
+      case "/":
+        tok = createToken(TokenType.Slash, this.ch);
+        break;
+      case "*":
+        tok = createToken(TokenType.Asterisk, this.ch);
+        break;
+      case "<":
+        tok = createToken(TokenType.LessThan, this.ch);
+        break;
+      case ">":
+        tok = createToken(TokenType.GreaterThan, this.ch);
+        break;
       case ";":
         tok = createToken(TokenType.Semicolon, this.ch);
+        break;
+      case ",":
+        tok = createToken(TokenType.Comma, this.ch);
         break;
       case "(":
         tok = createToken(TokenType.LParen, this.ch);
         break;
       case ")":
         tok = createToken(TokenType.RParen, this.ch);
-        break;
-      case ",":
-        tok = createToken(TokenType.Comma, this.ch);
-        break;
-      case "+":
-        tok = createToken(TokenType.Plus, this.ch);
         break;
       case "{":
         tok = createToken(TokenType.LBrace, this.ch);
