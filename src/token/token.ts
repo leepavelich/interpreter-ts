@@ -13,6 +13,8 @@ export const TokenType = {
   Asterisk: "*",
   LessThan: "<",
   GreaterThan: ">",
+  Equal: "==",
+  NotEqual: "!=",
 
   Comma: ",",
   Semicolon: ";",

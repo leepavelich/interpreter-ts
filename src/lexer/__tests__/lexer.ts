@@ -18,6 +18,9 @@ test("test getNextToken", () => {
     } else {
       return false;
     }
+
+    10 == 10;
+    10 != 9;
     `;
 
   const tokens: Token[] = [
@@ -88,6 +91,17 @@ test("test getNextToken", () => {
     { type: TokenType.False, literal: "false" },
     { type: TokenType.Semicolon, literal: ";" },
     { type: TokenType.RBrace, literal: "}" },
+
+    { type: TokenType.Int, literal: "10" },
+    { type: TokenType.Equal, literal: "==" },
+    { type: TokenType.Int, literal: "10" },
+    { type: TokenType.Semicolon, literal: ";" },
+    { type: TokenType.Int, literal: "10" },
+    { type: TokenType.NotEqual, literal: "!=" },
+    { type: TokenType.Int, literal: "9" },
+    { type: TokenType.Semicolon, literal: ";" },
+
+    { type: TokenType.Eof, literal: "" },
   ];
 
   const lexer = new Lexer(input);
