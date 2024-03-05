@@ -1,5 +1,5 @@
-import { Lexer } from "../lexer/lexer";
-import { Token } from "../token/token";
+import { Lexer } from "../lexer/";
+import { Token } from "../token/";
 import readline from "readline";
 
 const PROMPT = ">> ";

@@ -1,5 +1,5 @@
-import { Lexer } from "../lexer";
-import { Token, TokenType } from "../../token/token";
+import { Lexer } from "../";
+import { Token, TokenType } from "../../token/";
 
 test("test getNextToken", () => {
   const input = `let five = 5;

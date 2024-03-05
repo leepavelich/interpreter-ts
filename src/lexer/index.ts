@@ -1,4 +1,4 @@
-import { Token, createToken, TokenType, Keywords } from "../token/token";
+import { Token, createToken, TokenType, Keywords } from "../token";
 
 const _0 = "0".charCodeAt(0);
 const _9 = "9".charCodeAt(0);
