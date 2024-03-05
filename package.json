@@ -4,6 +4,7 @@
   "description": "Implementation of Thorsten Ball's Interpreter book in TS",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "test": "jest"
   },
   "keywords": [],
