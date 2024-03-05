@@ -1,6 +1,6 @@
 # interpreter-ts
 
-Implementation of Thorsten Ball's Interpreter book in TS
+Implementation of [Thorsten Ball's interpreter book](https://interpreterbook.com/) in TS
 
 ## Progress
 
