@@ -1,8 +1,8 @@
-import { Program } from "../ast";
+import { Identifier, LetStatement, Program, Statement } from "../ast";
 import { Lexer } from "../lexer";
-import { Token } from "../token";
+import { Token, TokenType } from "../token";
 
-class Parser {
+export class Parser {
   private l: Lexer;
   private currToken: Token;
   private peekToken: Token;
@@ -19,7 +19,63 @@ class Parser {
     this.peekToken = this.l.getNextToken();
   }
 
-  private parseProgram(): Program | null {
-    return null;
+  public parseProgram(): Program | null {
+    const program = new Program();
+
+    while (this.currToken.type !== TokenType.Eof) {
+      const statement = this.parseStatement();
+      if (statement !== null) {
+        program.statements.push(statement);
+      }
+      this.nextToken();
+    }
+    return program;
+  }
+
+  private parseStatement(): Statement | null {
+    switch (this.currToken.type) {
+      case TokenType.Let:
+        return this.parseLetStatement();
+      default:
+        return null;
+    }
+  }
+
+  private parseLetStatement(): LetStatement | null {
+    const statement = new LetStatement(this.currToken);
+
+    if (!this.expectPeek(TokenType.Ident)) {
+      return null;
+    }
+
+    statement.name = new Identifier(this.currToken, this.currToken.literal);
+
+    if (!this.expectPeek(TokenType.Assign)) {
+      return null;
+    }
+
+    // // TODO: We're skipping the expressions until we encounter a semicolon
+    while (!this.currTokenIs(TokenType.Semicolon)) {
+      this.nextToken();
+    }
+
+    return statement;
+  }
+
+  private currTokenIs(tokenType: Token["type"]): boolean {
+    return this.currToken.type === tokenType;
+  }
+
+  private peekTokenIs(tokenType: Token["type"]): boolean {
+    return this.peekToken.type === tokenType;
+  }
+
+  private expectPeek(tokenType: Token["type"]): boolean {
+    if (this.peekTokenIs(tokenType)) {
+      this.nextToken();
+      return true;
+    } else {
+      return false;
+    }
   }
 }

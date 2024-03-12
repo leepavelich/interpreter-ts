@@ -1,22 +1,11 @@
 import { Token } from "../token";
 
-abstract class Node {
-  abstract tokenLiteral(): string;
-}
+export type Statement = LetStatement;
 
-abstract class Statement extends Node {
-  abstract statementNode(): void;
-}
-
-abstract class Expression extends Node {
-  abstract expressionNode(): void;
-}
-
-export class Program extends Node {
-  private statements: Statement[];
+export class Program {
+  public statements: Statement[];
 
   constructor(statements: Statement[] = []) {
-    super();
     this.statements = statements;
   }
 
@@ -29,10 +18,14 @@ export class Program extends Node {
   }
 }
 
-export class LetStatement extends Statement {
+export class LetStatement {
   private token: Token;
-  private name: Identifier;
-  private value: Expression;
+  public name: Identifier;
+  public value: Identifier;
+
+  constructor(token: Token) {
+    this.token = token;
+  }
 
   public statementNode(): void {}
 
@@ -41,9 +34,14 @@ export class LetStatement extends Statement {
   }
 }
 
-export class Identifier extends Expression {
+export class Identifier {
   private token: Token;
   value: string;
+
+  constructor(token: Token, value: string) {
+    this.token = token;
+    this.value = value;
+  }
 
   public expressionNode(): void {}
 
