@@ -1,6 +1,6 @@
 import { Token } from "../token";
 
-export type Statement = LetStatement;
+export type Statement = LetStatement | ReturnStatement;
 
 export class Program {
   public statements: Statement[];
@@ -22,6 +22,21 @@ export class LetStatement {
   private token: Token;
   public name: Identifier;
   public value: Identifier;
+
+  constructor(token: Token) {
+    this.token = token;
+  }
+
+  public statementNode(): void {}
+
+  public tokenLiteral(): string {
+    return this.token.literal;
+  }
+}
+
+export class ReturnStatement {
+  private token: Token;
+  public returnValue: Identifier;
 
   constructor(token: Token) {
     this.token = token;
